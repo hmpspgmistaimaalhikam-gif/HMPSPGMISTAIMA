@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link di Bio - HMPS PGMI</title>
+    
+    <!-- Menggunakan font Poppins dari Google Fonts agar terlihat modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Menggunakan FontAwesome untuk ikon media sosial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS untuk tata letak yang responsif dan modern -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Latar belakang gradasi mesh kuning krem yang lebih kaya di sisi-sisi */
+            background-color: #FFFCF2;
+            background-image: 
+                radial-gradient(circle at 10% 20%, #FFF3C7 0%, transparent 40%),
+                radial-gradient(circle at 90% 30%, #FDE49C 0%, transparent 45%),
+                radial-gradient(circle at 20% 80%, #FDE49C 0%, transparent 50%),
+                radial-gradient(circle at 80% 90%, #FFF3C7 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Animasi untuk Logo Bergerak (Melayang) */
+        @keyframes float {
+            0% { transform: translateY(0px); box-shadow: 0 10px 25px rgba(234, 179, 8, 0.3); }
+            50% { transform: translateY(-12px); box-shadow: 0 20px 30px rgba(234, 179, 8, 0.5); }
+            100% { transform: translateY(0px); box-shadow: 0 10px 25px rgba(234, 179, 8, 0.3); }
+        }
+
+        .logo-animate {
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        /* Animasi background hiasan (lingkaran blur di sisi) */
+        @keyframes pulse-slow {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+            50% { transform: scale(1.1) translate(10px, -10px); opacity: 0.7; }
+            100% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+        }
+
+        .blob {
+            position: fixed;
+            filter: blur(70px);
+            z-index: 0;
+            animation: pulse-slow 8s infinite alternate;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Effect untuk Container */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 25px 50px -12px rgba(217, 119, 6, 0.15);
+        }
+
+        /* Tombol Link Kustom */
+        .link-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek Hover Tombol */
+        .link-btn:hover {
+            background: #FACC15; /* Kuning cerah */
+            border-color: #EAB308; /* Border kuning gelap */
+            color: #451A03; /* Teks cokelat gelap */
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(234, 179, 8, 0.25);
+        }
+
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .link-btn:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden text-amber-950 antialiased selection:bg-yellow-300 selection:text-yellow-900">
+
+    <!-- Hiasan Background Gradasi Blur Ekstra di Samping Kiri dan Kanan -->
+    <div class="blob w-[28rem] h-[28rem] bg-yellow-300 rounded-full top-[-10%] left-[-15%]"></div>
+    <div class="blob w-[32rem] h-[32rem] bg-orange-200 rounded-full bottom-[-15%] right-[-15%]" style="animation-delay: 2s;"></div>
+    <div class="blob w-80 h-80 bg-yellow-400/40 rounded-full top-[45%] left-[-10%]" style="animation-delay: 4s;"></div>
+    <div class="blob w-72 h-72 bg-amber-200/50 rounded-full top-[30%] right-[-5%]" style="animation-delay: 1s;"></div>
+
+    <!-- Wrapper Content -->
+    <div class="min-h-screen flex flex-col items-center justify-center py-12 px-4 sm:px-8 relative z-10">
+        
+        <div class="glass-container w-full max-w-md rounded-3xl p-8 text-center flex flex-col items-center">
+            
+            <!-- Foto Profil / Logo -->
+            <div class="relative mb-6 mt-2">
+                <div class="absolute inset-0 bg-yellow-400 rounded-2xl blur-lg opacity-40"></div>
+                <!-- Gambar diset memanggil logo.jpg -->
+                <img 
+                    src="https://gambar-whatsapp-2024-09-11-pukul-12-16-16-70ddfdd8.tiiny.site/Gambar-WhatsApp-2024-09-11-pukul-12-16-16_70ddfdd8.jpg" 
+                    onerror="this.src='https://placehold.co/150x150/fef08a/854d0e?text=Logo+HMPS'"
+                    alt="Logo HMPS PGMI" 
+                    class="logo-animate relative w-32 h-32 sm:w-36 sm:h-36 rounded-2xl object-cover border-4 border-white bg-white p-2"
+                >
+            </div>
+            
+            <!-- Judul Program Studi -->
+            <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-amber-900 leading-tight mb-2">
+                Program Studi <br> 
+                <span class="text-yellow-700">Pendidikan Guru Madrasah Ibtida'iyah</span>
+            </h1>
+            
+            <!-- Teks Bio -->
+            <p class="text-amber-800/80 text-sm sm:text-base font-medium mb-8 leading-relaxed">
+                Himpunan Mahasiswa Program Studi (HMPS) PGMI STAI Ma'had Aly Al-Hikam Malang.<br>
+                <span class="inline-block mt-2 font-semibold text-amber-900 bg-yellow-100/50 px-4 py-1 rounded-full border border-yellow-200 shadow-sm">
+                    Pilih menu di bawah ini 👇
+                </span>
+            </p>
+            
+            <!-- Daftar Link -->
+            <div class="w-full flex flex-col gap-4">
+                
+                <!-- Link 2: Contact Person WhatsApp Ketua Program Studi -->
+                <a href="https://wa.me/+6285233340297" target="_blank" rel="noopener noreferrer" class="link-btn w-full px-6 py-4 rounded-xl text-amber-900 font-semibold flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </div>
+                        <span class="text-left leading-tight">Contact Person (Ketua Program Studi)</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                </a>
+               
+                <!-- Link 1: Contact Person WhatsApp Ketua Himpunan -->
+                <a href="https://wa.me/+6285604631068" target="_blank" rel="noopener noreferrer" class="link-btn w-full px-6 py-4 rounded-xl text-amber-900 font-semibold flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center group-hover:bg-green-500 group-hover:text-white transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </div>
+                        <span class="text-left leading-tight">Contact Person (Ketua Himpunan)</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Link 3: Website Official -->
+                <a href="https://hmpspgmistaima27.blogspot.com" class="link-btn w-full px-6 py-4 rounded-xl text-amber-900 font-semibold flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                            <i class="fas fa-globe text-xl"></i>
+                        </div>
+                        <span class="text-left leading-tight">Tentang Himpunan</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Link 4: Instagram HMPS -->
+                <a href="https://www.instagram.com/hmpspgmi_alhikam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="link-btn w-full px-6 py-4 rounded-xl text-amber-900 font-semibold flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-500 group-hover:text-white transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </div>
+                        <span class="text-left leading-tight">Instagram HMPS PGMI</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                 <!-- Link 5: Instagram PGMI Fest -->
+                <a href="https://www.instagram.com/pgmifest?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="link-btn w-full px-6 py-4 rounded-xl text-amber-900 font-semibold flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center group-hover:bg-gradient-to-tr group-hover:from-yellow-400 group-hover:via-pink-500 group-hover:to-purple-500 group-hover:text-white transition-all">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </div>
+                        <span class="text-left leading-tight">Instagram PGMI Festival</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Link 6: Youtube -->
+                <a href="https://www.youtube.com/@HMPSPGMISTAIMAAL-HIKAM" target="_blank" rel="noopener noreferrer" class="link-btn w-full px-6 py-4 rounded-xl text-amber-900 font-semibold flex items-center justify-between group">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center group-hover:bg-red-600 group-hover:text-white transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </div>
+                        <span class="text-left leading-tight">Youtube HMPS PGMI</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-sm opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+            </div>
+            
+            <!-- Footer -->
+            <div class="mt-8 text-xs text-amber-700/60 font-medium">
+                &copy; HMPS PGMI STAIMA Al-Hikam Malang
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
